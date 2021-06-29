@@ -19,10 +19,10 @@ class QuizRepository extends BaseQuizRepository {
   Future<List<Question>> getQuestions() async {
     try {
       final response =
-          await _read(dioProvider).get('http://localhost:8080/api/question');
+          await _read(dioProvider).get('http://192.168.1.80:8080/api/questions');
       if (response.statusCode == 200) {
         final data = Map<String, dynamic>.from(response.data);
-        final results = List<Map<String,dynamic>>.from(data['results'] ?? []);
+        final results = List<Map<String,dynamic>>.from(data['questions'] ?? []);
         if (results.isNotEmpty) {
           return results.map((e) => Question.fromMap(e)).toList();
         }
@@ -36,7 +36,8 @@ class QuizRepository extends BaseQuizRepository {
     }
 
     catch (err) {
+      print(err);
     }
-      return [];
+    return [];
   }
 }
