@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:rorschach/views/screens/QuizScreen.dart';
+import 'package:rorschach/UI/pages/menu_page/menu_page_widget.dart';
+import 'package:rorschach/UI/screens/QuizScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.yellow,
           bottomSheetTheme:
               const BottomSheetThemeData(backgroundColor: Colors.transparent)),
-      home: QuizScreen(),
+      home: MenuPageWidget(),
     ));
   }
 }
