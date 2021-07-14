@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:rorschach/UI/pages/image_view/rorschach_blot_card.dart';
+
 import '../../style/flutter_flow/flutter_flow_theme.dart';
-import '../../style/flutter_flow/flutter_flow_util.dart';
 import '../../style/flutter_flow/flutter_flow_widgets.dart';
 import '../question_reflection_page/question_reflection_page_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class QuestionPageWidget extends StatefulWidget {
   QuestionPageWidget({Key? key}) : super(key: key);
@@ -48,108 +48,100 @@ class _QuestionPageWidgetState extends State<QuestionPageWidget> {
         elevation: 8,
         label: Container(),
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-              child: Text(
-                'What do you see?',
-                style: FlutterFlowTheme.title1.override(
-                  fontFamily: 'Poppins',
-                ),
-              ),
-            ),
-            Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              color: Color(0xFFF5F5F5),
-              elevation: 10,
-              child: Image.asset(
-                'assets/images/rorschach-blot-1.jpg',
-                width: MediaQuery.of(context).size.width * 0.95,
-                height: MediaQuery.of(context).size.height * 0.4,
-                fit: BoxFit.contain,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Text(
-                'Insert answers here:',
-                style: FlutterFlowTheme.title2.override(
-                  fontFamily: 'Poppins',
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
-              child: TextFormField(
-                controller: answerTextfieldController,
-                obscureText: false,
-                decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFF160C28),
-                      width: 1,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(4.0),
-                      topRight: Radius.circular(4.0),
-                    ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                child: Text(
+                  'What do you see?',
+                  style: FlutterFlowTheme.title1.override(
+                    fontFamily: 'Poppins',
                   ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFF160C28),
-                      width: 1,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(4.0),
-                      topRight: Radius.circular(4.0),
-                    ),
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
                 ),
-                style: FlutterFlowTheme.bodyText1.override(
-                  fontFamily: 'Poppins',
-                  color: Color(0xFF160C28),
-                ),
-                textAlign: TextAlign.start,
               ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('send_answer_btn pressed ...');
-                    },
-                    text: 'Send answer',
-                    options: FFButtonOptions(
-                      width: 180,
-                      height: 40,
-                      color: FlutterFlowTheme.primaryColor,
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                      ),
+              RorschachBlotCard(photo: 'assets/images/rorschach-blot-1.jpg'),
+              Padding(
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Text(
+                  'Insert answers here:',
+                  style: FlutterFlowTheme.title2.override(
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
+                child: TextFormField(
+                  controller: answerTextfieldController,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.transparent,
+                        color: Color(0xFF160C28),
                         width: 1,
                       ),
-                      borderRadius: 12,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(4.0),
+                        topRight: Radius.circular(4.0),
+                      ),
                     ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0xFF160C28),
+                        width: 1,
+                      ),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(4.0),
+                        topRight: Radius.circular(4.0),
+                      ),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
                   ),
-                )
-              ],
-            )
-          ],
+                  style: FlutterFlowTheme.bodyText1.override(
+                    fontFamily: 'Poppins',
+                    color: Color(0xFF160C28),
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    child: FFButtonWidget(
+                      onPressed: () {
+                        print('send_answer_btn pressed ...');
+                      },
+                      text: 'Send answer',
+                      options: FFButtonOptions(
+                        width: 180,
+                        height: 40,
+                        color: FlutterFlowTheme.primaryColor,
+                        textStyle: FlutterFlowTheme.subtitle2.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                        ),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
+                        ),
+                        borderRadius: 12,
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }

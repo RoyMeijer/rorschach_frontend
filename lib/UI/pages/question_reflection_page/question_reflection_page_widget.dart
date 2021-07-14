@@ -46,6 +46,15 @@ class _QuestionReflectionPageWidgetState
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+              child: Text(
+                'Reflection',
+                style: FlutterFlowTheme.title1.override(
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ),
             Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               color: Color(0xFFF5F5F5),

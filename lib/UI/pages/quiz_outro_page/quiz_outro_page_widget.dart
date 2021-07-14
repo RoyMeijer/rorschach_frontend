@@ -60,8 +60,9 @@ class _QuizOutroPageWidgetState extends State<QuizOutroPageWidget> {
                 padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
                 child: Text(
                   '''Disclaimer:
-                  These results are in not scientifically accurate. 
-                  Don\'t use them to judge your personal condition, talk to a professional.''',
+
+These results are in not scientifically accurate. 
+Don\'t use them to judge your personal condition, talk to a professional.''',
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.subtitle2.override(
                     fontFamily: 'Poppins',
