@@ -2,15 +2,16 @@
 
 The Rorschach test
 
-## Getting Started
+- We can select the page based on a global state? 
+```
+    QuestionNumber: 1
+    Phase: reflect.enum
+    answers : [
+        timestamp,
+        text
+    ]    
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Technical solution of the timer (serverside vs client side)
+- server side is more secure but will take more work, probably not worth it. I would need to return every single question
+- clien

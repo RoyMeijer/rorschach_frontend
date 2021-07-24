@@ -7,7 +7,8 @@ import '../../style/flutter_flow/flutter_flow_widgets.dart';
 import '../question_reflection_page/question_reflection_page_widget.dart';
 
 class QuestionPageWidget extends StatefulWidget {
-  QuestionPageWidget({Key? key}) : super(key: key);
+  final int questionIndex;
+  QuestionPageWidget({Key? key, this.questionIndex = 1}) : super(key: key);
 
   @override
   _QuestionPageWidgetState createState() => _QuestionPageWidgetState();
@@ -23,6 +24,24 @@ class _QuestionPageWidgetState extends State<QuestionPageWidget> {
     answerTextfieldController = TextEditingController();
   }
 
+  PageTransition nextQuestionScreen(int index) {
+    if (index > 9) {
+      return PageTransition(
+        type: PageTransitionType.rightToLeft,
+        duration: Duration(milliseconds: 400),
+        reverseDuration: Duration(milliseconds: 400),
+        child: QuestionReflectionPageWidget(),
+      );
+    } else {
+      return PageTransition(
+        type: PageTransitionType.rightToLeft,
+        duration: Duration(milliseconds: 400),
+        reverseDuration: Duration(milliseconds: 400),
+        child: QuestionPageWidget(questionIndex: ++index),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,12 +51,7 @@ class _QuestionPageWidgetState extends State<QuestionPageWidget> {
         onPressed: () async {
           await Navigator.push(
             context,
-            PageTransition(
-              type: PageTransitionType.rightToLeft,
-              duration: Duration(milliseconds: 400),
-              reverseDuration: Duration(milliseconds: 400),
-              child: QuestionReflectionPageWidget(),
-            ),
+            nextQuestionScreen(widget.questionIndex),
           );
         },
         backgroundColor: FlutterFlowTheme.primaryColor,
@@ -62,7 +76,7 @@ class _QuestionPageWidgetState extends State<QuestionPageWidget> {
                   ),
                 ),
               ),
-              RorschachBlotCard(photo: 'assets/images/rorschach-blot-1.jpg'),
+              RorschachBlotCard(photo: 'assets/images/rorschach-blot-${widget.questionIndex}.jpg'),
               Padding(
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: Text(

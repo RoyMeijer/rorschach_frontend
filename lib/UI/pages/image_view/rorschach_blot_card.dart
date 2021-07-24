@@ -21,7 +21,7 @@ class RorschachBlotCard extends StatelessWidget {
           Navigator.of(context)
               .push(MaterialPageRoute<void>(builder: (BuildContext context) {
             return ImageView(
-              photo: 'assets/images/rorschach-blot-1.jpg',
+              photo: photo,
               onTap: () {
                 Navigator.of(context).pop();
               },
@@ -29,7 +29,7 @@ class RorschachBlotCard extends StatelessWidget {
           }));
         },
         child: Padding(
-          child: Image.asset('assets/images/rorschach-blot-1.jpg'),
+          child: Image.asset(photo),
           padding: EdgeInsets.all(10.0),
         ),
       ),
