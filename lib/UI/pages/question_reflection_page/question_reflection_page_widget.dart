@@ -7,7 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 
 class QuestionReflectionPageWidget extends StatefulWidget {
-  QuestionReflectionPageWidget({Key? key}) : super(key: key);
+  final int questionIndex;
+
+  QuestionReflectionPageWidget({Key? key, this.questionIndex = 1}) : super(key: key);
 
   @override
   _QuestionReflectionPageWidgetState createState() =>
@@ -16,6 +18,25 @@ class QuestionReflectionPageWidget extends StatefulWidget {
 
 class _QuestionReflectionPageWidgetState
     extends State<QuestionReflectionPageWidget> {
+
+  PageTransition nextQuestionScreen(int index) {
+    if (index > 9) {
+      return PageTransition(
+        type: PageTransitionType.rightToLeft,
+        duration: Duration(milliseconds: 400),
+        reverseDuration: Duration(milliseconds: 400),
+        child: QuizOutroPageWidget(),
+      );
+    } else {
+      return PageTransition(
+        type: PageTransitionType.rightToLeft,
+        duration: Duration(milliseconds: 400),
+        reverseDuration: Duration(milliseconds: 400),
+        child: QuestionReflectionPageWidget(questionIndex: index),
+      );
+    }
+  }
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -27,12 +48,7 @@ class _QuestionReflectionPageWidgetState
         onPressed: () async {
           await Navigator.push(
             context,
-            PageTransition(
-              type: PageTransitionType.rightToLeft,
-              duration: Duration(milliseconds: 400),
-              reverseDuration: Duration(milliseconds: 400),
-              child: QuizOutroPageWidget(),
-            ),
+            nextQuestionScreen(widget.questionIndex + 1),
           );
         },
         backgroundColor: FlutterFlowTheme.primaryColor,
@@ -60,7 +76,7 @@ class _QuestionReflectionPageWidgetState
               color: Color(0xFFF5F5F5),
               elevation: 10,
               child: Image.asset(
-                'assets/images/rorschach-blot-1.jpg',
+                'assets/images/rorschach-blot-${widget.questionIndex}.jpg',
                 width: MediaQuery.of(context).size.width * 0.95,
                 height: MediaQuery.of(context).size.height * 0.4,
                 fit: BoxFit.contain,

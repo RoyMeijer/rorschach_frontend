@@ -58,6 +58,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+     - assets/images/Hermann_Rorschach.png
      - assets/images/rorschach-blot-1.jpg
      - assets/images/rorschach-blot-2.jpg
      - assets/images/rorschach-blot-3.jpg

@@ -47,8 +47,8 @@ class _MenuPageWidgetState extends State<MenuPageWidget> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                  child: Image.network(
-                    'http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcTbuRvwXXDR_msesHEPoKPTuVyc7CL2JuSpLDVGhxLbc_HETJqa1YsYEGS1d26Z',
+                  child: Image.asset(
+                    'assets/images/Hermann_Rorschach.png',
                   ),
                 ),
               ),
