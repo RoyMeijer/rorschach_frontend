@@ -1,17 +1,28 @@
-# rorschach
+# Rorschach Test App (Unfinished)
 
-The Rorschach test
+## Features
 
-- We can select the page based on a global state? 
-```
-    QuestionNumber: 1
-    Phase: reflect.enum
-    answers : [
-        timestamp,
-        text
-    ]    
-```
+- **Rorschach Test Interface:** Provides an interface for users to take Rorschach tests.
+- **Cross-Platform Compatibility:** Built with Flutter, the app runs smoothly on both iOS and Android.
 
-Technical solution of the timer (serverside vs client side)
-- server side is more secure but will take more work, probably not worth it. I would need to return every single question
-- clien
+## Getting Started
+
+To run this project:
+
+1. Ensure you have Flutter installed on your development machine.
+2. Clone the repository to your local machine.
+3. Open the project in your IDE and fetch all the dependencies.
+4. Run the application on an emulator or physical device.
+
+## Backend Integration
+
+The app integrates with a Spring backend for data processing. The backend handles the results of the Rorschach tests, providing analysis and storage solutions.
+
+## Future Enhancements
+
+- Result page should be added with analysis
+
+## Note
+
+This application is intended for educational and research purposes and should not be used as a substitute for professional psychological advice or diagnosis.
+
